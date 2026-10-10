@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksperimen CSS & Tugas Praktikum 3</title>
+    <!-- CSS Eksternal Modul -->
+    <link rel="stylesheet" href="style_eksternal.css" type="text/css">
+    
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #f7f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        .content {
+            width: 85%;
+            max-width: 900px;
+            margin: 25px auto;
+        }
+
+        .box-tugas {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+
+        .box-tugas h2 {
+            font-size: 18px;
+            color: #0F189F;
+            border-bottom: 2px solid #20A759;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        /* 1. Eksperimen Properti CSS (Cheat Sheet) */
+        .box-eksperimen {
+            background-color: #eef5f9;
+            border: 1px solid #bcd4e6;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .box-eksperimen p {
+            line-height: 1.6;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-custom {
+            display: inline-block;
+            background-color: #0F189F;
+            color: #ffffff;
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .btn-custom:hover {
+            background-color: #09106a;
+        }
+
+        /* 2. Selektor h1 vs #intro h1 */
+        .h1-standar {
+            font-size: 20px;
+            color: #0F189F;
+            margin: 10px 0;
+        }
+
+        #demo-intro {
+            background: #418fb1;
+            border: 1px solid #099249;
+            padding: 15px;
+            color: #ffffff;
+        }
+
+        #demo-intro h1 {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: left;
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+
+        /* 3. Uji Cascading (Internal vs Eksternal vs Inline) */
+        .teks-cascading {
+            color: blue;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* 4. Uji ID Selector vs Class Selector */
+        #paragraf-1 {
+            color: #d90429;
+            font-weight: bold;
+        }
+
+        .text-paragraf {
+            color: #2b9348;
+            font-style: italic;
+        }
+
+        .keterangan {
+            background-color: #f0f3f6;
+            padding: 10px 14px;
+            border-left: 4px solid #20A759;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eksperimen & Tugas <i>Praktikum 3</i></h1>
+    </header>
+
+    <nav>
+        <a href="lab2_css_dasar.html">CSS Dasar</a>
+        <a href="lab2_css_eksternal.html">CSS Eksternal</a>
+        <a class="active" href="eksperimen.html">Eksperimen & Tugas</a>
+    </nav>
+
+    <div class="content">
+        <!-- Identitas Mahasiswa -->
+        <div class="box-tugas">
+            <h2>Data Mahasiswa</h2>
+            <p style="margin: 5px 0; font-size: 14px;"><b>Nama:</b> Angger Cakra Wicaksono &nbsp;|&nbsp; <b>NIM:</b> 312510054 &nbsp;|&nbsp; <b>Kelas:</b> I253A</p>
+            <p style="margin: 5px 0; font-size: 14px;"><b>Mata Kuliah:</b> Pemrograman Web &nbsp;|&nbsp; <b>Dosen:</b> Agung Nugroho, S.Kom., M.Kom.</p>
+        </div>
+
+        <!-- Tugas 1 -->
+        <div class="box-tugas">
+            <h2>1. Eksperimen Properti CSS (CSS Cheat Sheet)</h2>
+            <p style="font-size: 14px;">Eksperimen penambahan properti CSS seperti <code>line-height</code>, <code>letter-spacing</code>, <code>border-radius</code>, serta efek tombol saat kursor diarahkan (<code>:hover</code>):</p>
+            <div class="box-eksperimen">
+                <p><b>Contoh Paragraf Eksperimen:</b> Paragraf ini menerapkan pengaturan jarak antarbaris (*line-height: 1.6*), jarak huruf (*letter-spacing*), sudut membulat (*border-radius: 6px*), dan latar belakang warna lembut (*#eef5f9*).</p>
+                <a href="#demo" class="btn-custom">Tombol Uji Eksperimen</a>
+            </div>
+        </div>
+
+        <!-- Tugas 2 -->
+        <div class="box-tugas">
+            <h2>2. Perbedaan Selektor <code>h1 {...}</code> dengan <code>#intro h1 {...}</code></h2>
+            <p style="font-size: 14px;">Selektor <code>h1</code> bersifat umum untuk seluruh judul di halaman web, sedangkan <code>#intro h1</code> hanya berlaku untuk tag <code>&lt;h1&gt;</code> yang berada di dalam elemen ber-ID <code>intro</code>.</p>
+            
+            <div style="margin-top: 12px;">
+                <p class="h1-standar">&lt;h1&gt; Standar: Berwarna biru rata tengah sesuai deklarasi global.</p>
+                <div id="demo-intro">
+                    <h1>&lt;h1&gt; di dalam #intro: Berwarna putih dan rata kiri.</h1>
+                    <p style="margin: 0; font-size: 13px;">Style judul di atas otomatis mengikuti aturan <code>#intro h1</code> karena berada di dalam kontainer #demo-intro.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tugas 3 -->
+        <div class="box-tugas">
+            <h2>3. Pengujian Prioritas Internal, Eksternal, dan Inline CSS</h2>
+            <p style="font-size: 14px;">Jika sebuah elemen memiliki deklarasi warna dari Internal CSS (biru) dan Inline CSS (merah), maka browser akan menampilkan nilai dari <b>Inline CSS</b> karena tingkat prioritasnya (*specificity*) paling tinggi.</p>
+            
+            <div style="background-color: #fafafa; border: 1px solid #e0e0e0; padding: 12px; margin-top: 8px;">
+                <p class="teks-cascading" style="color: #c9184a; margin: 0;">
+                    Teks ini menggunakan class internal (color: blue), namun ditambahkan inline style="color: #c9184a;".
+                </p>
+            </div>
+            <div class="keterangan">
+                <b>Hasil Pengujian:</b> Teks tampil berwarna <b>MERAH</b> karena Inline CSS mengalahkan deklarasi Internal dan Eksternal CSS.
+            </div>
+        </div>
+
+        <!-- Tugas 4 -->
+        <div class="box-tugas">
+            <h2>4. Pengujian ID Selector vs Class Selector</h2>
+            <p style="font-size: 14px;">Pengujian pada elemen <code>&lt;p id="paragraf-1" class="text-paragraf"&gt;</code>:</p>
+            
+            <div style="background-color: #fafafa; border: 1px solid #e0e0e0; padding: 12px; margin-top: 8px;">
+                <p id="paragraf-1" class="text-paragraf" style="margin: 0;">
+                    Paragraf pengujian selector: id="paragraf-1" (merah, tebal) dan class="text-paragraf" (hijau, miring).
+                </p>
+            </div>
+            <div class="keterangan">
+                <b>Hasil Pengujian:</b> Teks tampil berwarna <b>MERAH</b> karena ID Selector memiliki bobot spesifitas lebih tinggi (100) dibandingkan Class Selector (10). Namun gaya miring (*italic*) dari Class tetap diterapkan karena propertinya tidak bertabrakan (*cascading*).
+            </div>
+        </div>
+    </div>
+</body>
+</html>
